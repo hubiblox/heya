@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My TikTok Bio Link</title>
+    
+    <!-- Secure Google font token allows the page to render premium serif text -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Cinzel', serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            overflow: hidden;
+            background-color: #080b10;
+        }
+
+        /* ATMOSPHERIC BACKGROUND SYSTEM */
+        .silksong-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -2;
+            background: radial-gradient(circle at 50% 30%, #111a28 0%, #05070a 100%);
+        }
+
+        /* Luminous Weaver Spores Floating System */
+        .silksong-bg .glowing-spores {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(rgba(135, 230, 255, 0.2) 2px, transparent 2px),
+                radial-gradient(rgba(100, 210, 255, 0.15) 3px, transparent 3px);
+            background-size: 160px 160px, 280px 250px;
+            animation: sporeFloat 12s infinite linear;
+        }
+
+        @keyframes sporeFloat {
+            from { background-position: 0 0, 50px 20px; }
+            to { background-position: 40px -160px, -60px -250px; }
+        }
+
+        /* Structural vertical background threads */
+        .silksong-bg .silk-strands {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.12;
+            background: repeating-linear-gradient(45deg, transparent, transparent 100px, #87dcff 101px, transparent 102px);
+        }
+
+        .silksong-bg .needle-silhouette {
+            position: absolute;
+            right: 10%;
+            bottom: -80px;
+            width: 50px;
+            height: 600px;
+            background: linear-gradient(180deg, transparent 0%, rgba(20, 40, 55, 0.3) 40%, rgba(3, 5, 8, 0.9) 100%);
+            clip-path: polygon(50% 0%, 100% 12%, 75% 85%, 60% 100%, 40% 100%, 25% 85%, 0% 12%);
+            filter: blur(1px) drop-shadow(-15px 0px 30px rgba(0, 180, 255, 0.2));
+        }
+
+        .vignette-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, transparent 25%, rgba(2, 3, 5, 0.9) 100%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .content-container {
+            text-align: center;
+            padding-top: 60px;
+            width: 100%;
+            max-width: 500px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* HORNET'S HEAD MASK CREST */
+        .hornet-crest {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+            opacity: 0.75;
+            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.15));
+        }
+
+        .hornet-crest .mask-base {
+            position: absolute;
+            bottom: 0;
+            width: 60px;
+            height: 45px;
+            left: 10px;
+            background-color: #dbe4eb;
+            border-radius: 50% 50% 45% 45%;
+            clip-path: polygon(0% 0%, 100% 0%, 85% 100%, 15% 100%);
+        }
+
+        .hornet-crest .horn {
+            position: absolute;
+            width: 22px;
+            height: 55px;
+            background-color: #dbe4eb;
+            top: 0;
+            border-radius: 70% 30% 0% 0%;
+        }
+
+        .hornet-crest .horn.left {
+            left: 8px;
+            transform: rotate(-18deg);
+        }
+
+        .hornet-crest .horn.right {
+            right: 8px;
+            transform: rotate(18deg) scaleX(-1);
+        }
+
+        .hornet-crest .eye {
+            position: absolute;
+            width: 10px;
+            height: 18px;
+            background-color: #080b10;
+            top: 10px;
+            border-radius: 50%;
+        }
+
+        .hornet-crest .eye.left { left: 14px; transform: rotate(15deg); }
+        .hornet-crest .eye.right { right: 14px; transform: rotate(-15deg); }
+
+        /* BRAND TITLE EMBLEM */
+        .logo-wrapper {
+            margin-bottom: 60px;
+        }
+
+        .main-logo-text {
+            font-size: 46px;
+            font-weight: 400;
+            margin: 0 0 10px 0;
+            color: #ffffff;
+            letter-spacing: 12px;
+            text-shadow: 0 0 12px rgba(255, 255, 255, 0.35), 0 0 30px rgba(135, 220, 255, 0.2);
+        }
+
+        .decorative-crest {
+            color: rgba(255, 255, 255, 0.35);
+            font-size: 14px;
+            letter-spacing: 8px;
+        }
+
+        .buttons-stack {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        /* MINIMALIST LINKS WITH ANIMATED SILK THREAD CUTS */
+        .bio-link {
+            position: relative;
+            display: block;
+            width: 100%;
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 15px;
+            letter-spacing: 5px;
+            padding: 14px 0;
+            transition: color 0.4s ease, letter-spacing 0.4s ease;
+            overflow: hidden;
+        }
+
+        .bio-link .thread-line {
+            position: absolute;
+            top: 50%;
+            left: -100%;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #87dcff, #ffffff, #87dcff, transparent);
+            opacity: 0;
+            transition: none;
+        }
+
+        .bio-link:hover {
+            color: #ffffff;
+            letter-spacing: 7px;
+            text-shadow: 0 0 10px #ffffff, 0 0 20px #87dcff;
+        }
+
+        .bio-link:hover .thread-line {
+            opacity: 1;
+            animation: threadStrike 0.4s ease-out forwards;
+        }
+
+        @keyframes threadStrike {
+            0% { left: -100%; opacity: 0; }
+            50% { opacity: 1; }
+            100% { left: 100%; opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Atmospheric Pharloom Background Environment -->
+    <div class="silksong-bg">
+        <div class="silk-strands"></div>
+        <div class="glowing-spores"></div>
+        <div class="needle-silhouette"></div>
+    </div>
+    <div class="vignette-overlay"></div>
+
+    <div class="content-container">
+        <!-- Pure CSS Hornet Mask Crest -->
+        <div class="hornet-crest">
+            <div class="horn left"></div>
+            <div class="horn right"></div>
+            <div class="mask-base">
+                <div class="eye left"></div>
+                <div class="eye right"></div>
+            </div>
+        </div>
+
+        <div class="logo-wrapper">
+            <h1 class="main-logo-text">WELCOME</h1>
+            <div class="decorative-crest">✧ ─ 🙝 ─ ✧</div>
+        </div>
+
+        <!-- Links stack with custom silk strike hover animations -->
+        <div class="buttons-stack">
+            <a href="https://www.youtube.com/@imofficialpancake" class="bio-link" target="_blank">
+                <span class="thread-line"></span>
+                MY YOUTUBE
+            </a>
+            <a href="https://discord.gg/7TQrBYxA8S" class="bio-link" target="_blank">
+                <span class="thread-line"></span>
+                DISCORD SERVER
+            </a>
+            <a href="https://www.tiktok.com/@kurkinmaster" class="bio-link">
+                <span class="thread-line"></span>
+                TIKTOK PLAYLIST
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
